@@ -1,4 +1,6 @@
-package com.demo.test.mock.component;
+package com.demo.test.component;
+
+import com.demo.test.component.DependedOnComponent;
 
 public class SystemUnderTest {
     private DependedOnComponent dependedOnComponent;

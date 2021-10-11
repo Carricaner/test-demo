@@ -1,7 +1,7 @@
 package com.demo.test.spy;
 
-import com.demo.test.mock.component.DependedOnComponent;
-import com.demo.test.mock.component.SystemUnderTest;
+import com.demo.test.component.DependedOnComponent;
+import com.demo.test.component.SystemUnderTest;
 import org.junit.Test;
 import org.mockito.Mockito;
 

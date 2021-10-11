@@ -1,4 +1,4 @@
-package com.demo.test.mock.component;
+package com.demo.test.component;
 
 public class DependedOnComponent {
     public String doSomething() {
