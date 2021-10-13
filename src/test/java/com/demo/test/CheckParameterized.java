@@ -43,6 +43,8 @@ public class CheckParameterized {
         }
     }
 
+    // Unchanged
+    // Wait for studying the details of Params in jupiter.api test package.
     @Test
     public void testCase() {
         assertEquals(stateMachine.checkNumber(testNumber), result);

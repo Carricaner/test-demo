@@ -1,11 +1,14 @@
 package com.demo.test.mock;
 
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Date;
 
+@SpringBootTest
 public class TestRealCase {
 
     private TopicManager topicManager = new TopicManager();
@@ -29,7 +32,7 @@ public class TestRealCase {
         // Use Mockito.times() to check how many times DOC was called by SUT.
         // Use Mockito.any() to match any case of input type.
         Mockito.verify(mockDAO, Mockito.times(1)).getTrendTopic(Mockito.any(Date.class));
-        Assert.assertEquals(result, trendTopic);
+        Assertions.assertEquals(result, trendTopic);
     }
 
     class TopicManager {

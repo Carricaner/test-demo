@@ -4,9 +4,13 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Assert;
-import org.junit.Test;
+//import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-public class CheckAssert {
+@SpringBootTest
+public class TestAssert {
 
     String t1 = "t1";
     int i1 = 1;
@@ -26,21 +30,21 @@ public class CheckAssert {
 
     @Test
     public void testB1() {
-        Assert.assertTrue(b1);
-        Assert.assertNotEquals(b1, false);
+        Assertions.assertTrue(b1);
+        Assertions.assertNotEquals(b1, false);
     }
 
     @Test
     public void testIA() {
-        Assert.assertArrayEquals(ia, new int[]{1, 2, 3});
+        Assertions.assertArrayEquals(ia, new int[]{1, 2, 3});
     }
 
     @Test
     public void testIL() {
         // It will compare them by reference.
-        Assert.assertNotSame(il, Arrays.asList(1, 2, 3, 4, 5));
+        Assertions.assertNotSame(il, Arrays.asList(1, 2, 3, 4, 5));
 
         // If using assertEquals series on reference type, it will only compare two by values.
-        Assert.assertEquals(il, Arrays.asList(1, 2, 3, 4, 5));
+        Assertions.assertEquals(il, Arrays.asList(1, 2, 3, 4, 5));
     }
 }

@@ -3,14 +3,17 @@ package com.demo.test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.demo.test.component.TestObject;
-import org.junit.Assert;
-import org.junit.Test;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
-public class AssertJTest {
+@SpringBootTest
+public class TestAssertJ {
+
     @Test
     public void testDate() {
         LocalDate localDate = LocalDate.of(2020, 2, 10);
@@ -33,7 +36,7 @@ public class AssertJTest {
                 new TestObject("Me", "People"),
                 new TestObject("You", "Reader")
         );
-        assertThat(testObjects)
+        Assertions.assertThat(testObjects)
                 .anyMatch(x -> x.getName().equals("Me"))
                 .doesNotContainNull();
     }
