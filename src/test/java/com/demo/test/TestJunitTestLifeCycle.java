@@ -7,10 +7,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+
+import static org.junit.jupiter.api.Assertions.assertTimeout;
 
 @SpringBootTest
 public class TestJunitTestLifeCycle {
@@ -47,21 +50,17 @@ public class TestJunitTestLifeCycle {
     // Caveat! The expected and timeout annotation elements of org.junit.Test are handled by dedicated Jupiter assertions.
     @Test
     public void checkTimeout() {
-        Assertions.assertTimeout(
+        assertTimeout(
                 Duration.ofSeconds(5L),
                 () -> TimeUnit.SECONDS.sleep(1)
         );
         System.out.println("(( Check Timeout Test ))");
     }
 
-    // Caveat! The expected and timeout annotation elements of org.junit.Test are handled by dedicated Jupiter assertions.
     @Test
-    public void checkException() {
-        // Check it out next time
-//        Assertions.assertThrows(
-//                RuntimeException.class,
-//                () -> {throw new RuntimeException()}
-//        );
+    @Timeout(value = 3000, unit = TimeUnit.MILLISECONDS)
+    public void checkTimeout2() throws InterruptedException {
+        Thread.currentThread().sleep(2000);
     }
 
     @AfterEach
